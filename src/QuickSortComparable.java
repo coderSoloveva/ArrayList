@@ -1,13 +1,19 @@
-import java.util.Comparator;
-
+/**
+ * A class for quick sorting Array List classes that implement the MyList interface.
+ * Array elements must implement the Comparable interface
+ * @param <E> array element type
+ */
 public class QuickSortComparable<E extends Comparable<E>> {
     private MyList<E> inputArray;
-
     public QuickSortComparable(MyList<E> inputArray){
         this.inputArray = inputArray;
     }
-
-    public void startQuickStart(int start,int end){
+    /**
+     * A class for quick sorting Array List classes that implement the MyList interface.
+     * @param start the position of the first element to be sorted
+     * @param end the position of the last element to be sorted
+     */
+    public void startQuickStart(int start, int end){
         int q;
         if(start < end){
             q = partition(start, end);
@@ -15,10 +21,15 @@ public class QuickSortComparable<E extends Comparable<E>> {
             startQuickStart(q+1, end);
         }
     }
+
+    /**
+     * Returns an array.
+     * If the startQuickStart method was called before, then the sorted array will be returned
+     * @return array
+     */
     public MyList<E> getSortedArray(){
         return inputArray;
     }
-
     int partition(int start, int end){
         int init = start;
         int length = end;
@@ -44,6 +55,5 @@ public class QuickSortComparable<E extends Comparable<E>> {
                 return length;
             }
         }
-
     }
 }
